@@ -56,18 +56,20 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Helper function to find images
-def get_img(search):
+# Smart Helper function to find images based on folder screenshot
+def get_img(search_terms):
     files = [f for f in os.listdir('.') if os.path.isfile(f)]
     for f in files:
-        if search.lower() in f.lower(): return f
+        for term in search_terms:
+            if term.lower() in f.lower():
+                return f
     return None
 
 # 01. EXECUTIVE IDENTITY (Hero Section)
 with st.container():
     col_img, col_txt = st.columns([1, 2.2])
     with col_img:
-        pic = get_img("toufique-jpg")
+        pic = get_img(["toufique-jpg"])
         if pic: st.image(pic, width=380)
     with col_txt:
         st.markdown("<div class='hero-box'>", unsafe_allow_html=True)
@@ -108,8 +110,8 @@ st.markdown("<div class='section-header'>💼 Institutional Leadership & Impact<
 # WAVE Foundation
 col_w1, col_w2 = st.columns([1, 4])
 with col_w1:
-    wave_l = get_img("WAVE LOGO")
-    if wave_l: st.image(wave_l, width=140)
+    wave_l = get_img(["WAVE LOGO"])
+    if wave_l: st.image(wave_l, width=150)
 with col_w2:
     st.subheader("Deputy Coordinator — WAVE Foundation")
     st.info("Senior Management | Research & Donor Partnerships | 2018 – Present")
@@ -125,14 +127,14 @@ st.markdown("<br>", unsafe_allow_html=True)
 # BRAC International
 col_b1, col_b2 = st.columns([1, 4])
 with col_b1:
-    brac_l = get_img("BRAC LOGO")
-    if brac_l: st.image(brac_l, width=140)
+    brac_l = get_img(["BRAC LOGO"])
+    if brac_l: st.image(brac_l, width=150)
 with col_b2:
     st.subheader("Young Professional — BRAC International")
     st.info("Management Traineeship & Global Coordination | 2011 – 2015")
     st.markdown("""
     *   **Institutional DNA:** Selected for highly competitive management traineeship at **BRAC Learning Centre (BLC)**, mastering standardized NGO operations.
-    *   **Cross-Border Operations:** Supported monitoring of microfinance and youth programmes across **5 BRAC International country offices**.
+    *   **Cross-Border Operations Master:** Supported monitoring of microfinance and youth programmes across **5 BRAC International country offices**.
     *   **System Standardization:** Integrated MIS and financial reporting processes, facilitating capacity building for **10,000+ participants**.
     """)
 
@@ -142,8 +144,8 @@ c_edu, c_cert = st.columns([1, 1.8])
 
 with c_edu:
     st.markdown("### Higher Education")
-    du_l = get_img("Dhaka University")
-    if du_l: st.image(du_l, width=85)
+    du_l = get_img(["Dhaka University Logo"])
+    if du_l: st.image(du_l, width=100)
     st.markdown("""
     <div class='edu-card'>
     <b>PG Diploma in International Relations</b><br>University of Dhaka
@@ -157,34 +159,35 @@ with c_cert:
     st.markdown("### Global Certifications")
     l1, l2, l3, l4 = st.columns(4)
     with l1:
-        tft = get_img("Tufts")
-        if tft: st.image(tft, width=100)
+        tft = get_img(["Tufts"])
+        if tft: st.image(tft, width=110)
         st.caption("Digital Finance (Tufts, USA)")
     with l2:
-        goog = get_img("Google")
-        if goog: st.image(goog, width=100)
+        goog = get_img(["Google"])
+        if goog: st.image(goog, width=110)
         st.caption("Machine Learning & AI")
     with l3:
-        undp = get_img("UNDP")
-        if undp: st.image(undp, width=120)
+        undp = get_img(["UNDP_BIOFIN"])
+        if undp: st.image(undp, width=130)
         st.caption("Climate Finance (BIOFIN)")
     with l4:
-        pria = get_img("PRIA") 
-        if pria: st.image(pria, width=100)
-        st.caption("MEAL & Impact Assessment (PRIA, India)")
+        # Matches your folder filename "PRIYA International Academy"
+        meal_l = get_img(["PRIYA"]) 
+        if meal_l: st.image(meal_l, width=110)
+        st.caption("MEAL & Impact (PRIA, India)")
 
-# 05. ACADEMIC ENGAGEMENT (Guest Lecturer)
+# 05. ACADEMIC ENGAGEMENT
 st.markdown("<div class='section-header'>🏫 Academic Engagement</div>", unsafe_allow_html=True)
 v_col1, v_col2, v_col3 = st.columns(3)
 with v_col1:
-    img1 = get_img("South Asia")
-    if img1: st.image(img1, width=180)
+    img1 = get_img(["South Asia"])
+    if img1: st.image(img1, width=200)
 with v_col2:
-    img2 = get_img("Royal University")
-    if img2: st.image(img2, width=180)
+    img2 = get_img(["Royal University"])
+    if img2: st.image(img2, width=200)
 with v_col3:
-    img3 = get_img("Canadian University")
-    if img3: st.image(img3, width=180)
+    img3 = get_img(["Canadian University"])
+    if img3: st.image(img3, width=200)
 
 # 06. THOUGHT LEADERSHIP
 st.markdown("<div class='section-header'>📝 Policy Advocacy & Publications</div>", unsafe_allow_html=True)
