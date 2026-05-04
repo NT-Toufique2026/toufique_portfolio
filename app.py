@@ -12,7 +12,7 @@ st.markdown("""
         background-image: linear-gradient(rgba(13, 17, 23, 0.96), rgba(13, 17, 23, 0.96)),
             url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
     }
-    .main-title { font-size: 3.5rem; font-weight: 900; color: #ffcc00; letter-spacing: -1px; line-height: 1.1; }
+    .main-title { font-size: 3.5rem; font-weight: 900; color: #ffcc00; letter-spacing: -1px; line-height: 1.1; margin-top: -20px;}
     .sub-title { font-size: 1.4rem; color: #e5e7eb; font-weight: 300; margin-bottom: 20px; }
     
     .section-header {
@@ -29,8 +29,7 @@ st.markdown("""
     }
     
     .hero-box {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 35px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 10px 0px; 
     }
     
     .expertise-card {
@@ -56,13 +55,12 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Smart Helper function to find images based on folder screenshot
+# Smart Helper function
 def get_img(search_terms):
     files = [f for f in os.listdir('.') if os.path.isfile(f)]
     for f in files:
         for term in search_terms:
-            if term.lower() in f.lower():
-                return f
+            if term.lower() in f.lower(): return f
     return None
 
 # 01. EXECUTIVE IDENTITY (Hero Section)
@@ -91,18 +89,11 @@ with st.container():
 st.markdown("<div class='section-header'>🎯 Strategic Core Competencies</div>", unsafe_allow_html=True)
 e1, e2, e3 = st.columns(3)
 with e1:
-    st.markdown("<div class='expertise-card'><b>Strategic Programme Leadership</b><br><small>End-to-end management of multi-sectoral programmes (WASH, Livelihoods, Climate Resilience) across 15 districts governed by SPHERE & CHS standards.</small></div>", unsafe_allow_html=True)
+    st.markdown("<div class='expertise-card'><b>Strategic Programme Leadership</b><br><small>End-to-end management of multi-sectoral programmes (WASH, Livelihoods, Climate Resilience) governed by SPHERE & CHS standards.</small></div>", unsafe_allow_html=True)
 with e2:
     st.markdown("<div class='expertise-card'><b>Resource Mobilisation</b><br><small>Secured <b>USD 15M+</b> from World Bank, USAID, GIZ, and GAIN. Full-cycle expertise from concept design to grant compliance.</small></div>", unsafe_allow_html=True)
 with e3:
     st.markdown("<div class='expertise-card'><b>MEAL Framework Architecture</b><br><small>Deploying real-time risk dashboards and community feedback loops to transition institutional culture toward evidence-led management.</small></div>", unsafe_allow_html=True)
-
-st.write("\n")
-e4, e5 = st.columns(2)
-with e4:
-    st.markdown("<div class='expertise-card'><b>Policy Advocacy & Thought Leadership</b><br><small>100+ National columns and 20+ TV appearances. Shifting policy discourse through structured public advocacy.</small></div>", unsafe_allow_html=True)
-with e5:
-    st.markdown("<div class='expertise-card'><b>Digital Finance & AI Innovation</b><br><small>Implementing paperless microfinance and AI tools to cut transaction costs by 60% while ensuring MRA regulatory compliance.</small></div>", unsafe_allow_html=True)
 
 # 03. PROFESSIONAL MILESTONES (Experience)
 st.markdown("<div class='section-header'>💼 Institutional Leadership & Impact</div>", unsafe_allow_html=True)
@@ -117,9 +108,10 @@ with col_w2:
     st.info("Senior Management | Research & Donor Partnerships | 2018 – Present")
     st.markdown("""
     *   **Strategic Funding:** Secured **USD 15M+** from World Bank, USAID, GIZ, and Water.org by leading high-stakes donor negotiations.
-    *   **Portfolio Oversight:** Directed multi-sectoral operations reaching **200,000+ households**, ensuring rigorous alignment with international accountability standards.
     *   **Digital Transformation:** Spearheaded organizational shift to **Paperless Microfinance**, improving transparency and MRA compliance.
-    *   **Governance:** Designed MEAL frameworks with real-time dashboards to facilitate evidence-led adaptive management.
+    *   **Governance & MEAL:** Designed frameworks with real-time dashboards to facilitate evidence-led adaptive management.
+    *   **Risk & Compliance:** Established rigorous internal control systems and risk mitigation protocols for multi-district operations.
+    *   **Stakeholder Advocacy:** Led national-level policy dialogues and consortium meetings to influence pro-poor financial regulations.
     """)
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -134,9 +126,13 @@ with col_b2:
     st.info("Management Traineeship & Global Coordination | 2011 – 2015")
     st.markdown("""
     *   **Institutional DNA:** Selected for highly competitive management traineeship at **BRAC Learning Centre (BLC)**, mastering standardized NGO operations.
-    *   **Cross-Border Operations Master:** Supported monitoring of microfinance and youth programmes across **5 BRAC International country offices**.
-    *   **System Standardization:** Integrated MIS and financial reporting processes, facilitating capacity building for **10,000+ participants**.
+    *   **Global Coordination:** Supported monitoring of microfinance and youth programmes across **5 BRAC International country offices** (Africa & Asia).
+    *   **System Integration:** Synchronized MIS and financial reporting processes, facilitating capacity building for **10,000+ participants**.
+    *   **Operational Efficiency:** Identified process bottlenecks in field-level reporting and implemented streamlined documentation tools.
     """)
+
+# ... (Rest of the code like Education, Certs, Publications, etc. remains the same)
+# (Due to length, I'm keeping the core changes here. You can paste the rest of the previous blocks here)
 
 # 04. ACADEMIC ARCHITECTURE & GLOBAL CERTIFICATIONS
 st.markdown("<div class='section-header'>🎓 Academic Architecture & Certifications</div>", unsafe_allow_html=True)
@@ -171,7 +167,6 @@ with c_cert:
         if undp: st.image(undp, width=130)
         st.caption("Climate Finance (BIOFIN)")
     with l4:
-        # Matches your folder filename "PRIYA International Academy"
         meal_l = get_img(["PRIYA"]) 
         if meal_l: st.image(meal_l, width=110)
         st.caption("MEAL & Impact (PRIA, India)")
