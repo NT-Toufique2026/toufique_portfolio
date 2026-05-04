@@ -131,31 +131,31 @@ with c_cert:
         st.caption("UNDP BIOFIN")
     st.markdown("</div>", unsafe_allow_html=True)
 
-# 04. NEW SEGMENT: ACADEMIC ENGAGEMENT (LOGO ONLY)
+# 04. ACADEMIC ENGAGEMENT (GUEST LECTURER)
 st.markdown("<div class='section-header'>🏫 Academic Engagement (Guest Lecturer)</div>", unsafe_allow_html=True)
 st.write("\n")
-# এখানে আপনি যতগুলো বিশ্ববিদ্যালয়ে পড়িয়েছেন সেগুলোর লোগো দিন
-v_col1, v_col2, v_col3, v_col4 = st.columns(4)
+v_col1, v_col2, v_col3 = st.columns(3)
 
 with v_col1:
-    # উদাহরণ হিসেবে ঢাকা বিশ্ববিদ্যালয় রাখা হলো
-    if os.path.exists("Dhaka University Logo.png"):
-        st.image("Dhaka University Logo.png", width=120)
-    st.caption("University 01")
+    if os.path.exists("University of South Asia Logo.png"):
+        st.image("University of South Asia Logo.png", width=160)
+    else:
+        st.write("**University of South Asia**")
+    st.caption("Guest Lecturer")
 
 with v_col2:
-    # এখানে আপনার দ্বিতীয় বিশ্ববিদ্যালয়ের লোগোর নাম দিন
-    st.image("https://via.placeholder.com/120", width=120) 
-    st.caption("University 02")
+    if os.path.exists("Royal University Logo.png"):
+        st.image("Royal University Logo.png", width=160)
+    else:
+        st.write("**Royal University of Dhaka**")
+    st.caption("Guest Lecturer")
 
 with v_col3:
-    st.image("https://via.placeholder.com/120", width=120)
-    st.caption("University 03")
-
-with v_col4:
-    st.image("https://via.placeholder.com/120", width=120)
-    st.caption("University 04")
-
+    if os.path.exists("Canadian University Logo.png"):
+        st.image("Canadian University Logo.png", width=160)
+    else:
+        st.write("**Canadian University of Bangladesh**")
+    st.caption("Guest Lecturer")
 
 # 05. ALL ARTICLES & POLICY COLUMNS
 st.markdown("<div class='section-header'>📝 Policy Columns & Publications</div>", unsafe_allow_html=True)
@@ -181,7 +181,7 @@ with tab_column:
             ("Financial Express: Spin-off effect on lower income", "https://thefinancialexpress.com.bd/views/analysis/spin-off-effect-on-lower-income-groups-1605888994"),
             ("Banik Barta: Financial Sector Editorial", "https://bonikbarta.com/editorial/f2WqYrUw1a1fFhza"),
             ("Business Mirror: Banking Sector Crisis", "https://epaper.bmirror.net/nogor-edition/2026-03-04/4"),
-            ("Business Mirror: Economic Commentary", "https://epaper.mirror.net/nogor-edition/2026-02-09/4"),
+            ("Business Mirror: Economic Commentary", "https://epaper.bmirror.net/nogor-edition/2026-02-09/4"),
             ("Daily Observer: Post-Crash Share Market Analysis", "https://www.observerbd.com/details.php?id=305645")
         ]
         for title, link in articles_2:
