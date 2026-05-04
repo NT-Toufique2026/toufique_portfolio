@@ -122,16 +122,42 @@ with c_cert:
     l1, l2, l3 = st.columns(3)
     with l1: 
         st.image("Tufts University,Fletcher School_FinTech.jpg", width=90)
-        st.caption("**Tufts University, Fletcher School, USA, Digital Money**") # Updated
+        st.caption("**Tufts University, Fletcher School, USA, Digital Money**")
     with l2: 
         st.image("Google.jpeg", width=90)
-        st.caption("**AI & Machine Learning**") # Confirmed
+        st.caption("**AI & Machine Learning**")
     with l3: 
         st.image("UNDP_BIOFIN.png", width=120)
         st.caption("UNDP BIOFIN")
     st.markdown("</div>", unsafe_allow_html=True)
 
-# 04. ALL ARTICLES & POLICY COLUMNS
+# 04. NEW SEGMENT: ACADEMIC ENGAGEMENT (LOGO ONLY)
+st.markdown("<div class='section-header'>🏫 Academic Engagement (Guest Lecturer)</div>", unsafe_allow_html=True)
+st.write("\n")
+# এখানে আপনি যতগুলো বিশ্ববিদ্যালয়ে পড়িয়েছেন সেগুলোর লোগো দিন
+v_col1, v_col2, v_col3, v_col4 = st.columns(4)
+
+with v_col1:
+    # উদাহরণ হিসেবে ঢাকা বিশ্ববিদ্যালয় রাখা হলো
+    if os.path.exists("Dhaka University Logo.png"):
+        st.image("Dhaka University Logo.png", width=120)
+    st.caption("University 01")
+
+with v_col2:
+    # এখানে আপনার দ্বিতীয় বিশ্ববিদ্যালয়ের লোগোর নাম দিন
+    st.image("https://via.placeholder.com/120", width=120) 
+    st.caption("University 02")
+
+with v_col3:
+    st.image("https://via.placeholder.com/120", width=120)
+    st.caption("University 03")
+
+with v_col4:
+    st.image("https://via.placeholder.com/120", width=120)
+    st.caption("University 04")
+
+
+# 05. ALL ARTICLES & POLICY COLUMNS
 st.markdown("<div class='section-header'>📝 Policy Columns & Publications</div>", unsafe_allow_html=True)
 tab_column, tab_scholar = st.tabs(["📰 National Columns (Full List)", "📊 Google Scholar & Books"])
 
@@ -155,7 +181,7 @@ with tab_column:
             ("Financial Express: Spin-off effect on lower income", "https://thefinancialexpress.com.bd/views/analysis/spin-off-effect-on-lower-income-groups-1605888994"),
             ("Banik Barta: Financial Sector Editorial", "https://bonikbarta.com/editorial/f2WqYrUw1a1fFhza"),
             ("Business Mirror: Banking Sector Crisis", "https://epaper.bmirror.net/nogor-edition/2026-03-04/4"),
-            ("Business Mirror: Economic Commentary", "https://epaper.bmirror.net/nogor-edition/2026-02-09/4"),
+            ("Business Mirror: Economic Commentary", "https://epaper.mirror.net/nogor-edition/2026-02-09/4"),
             ("Daily Observer: Post-Crash Share Market Analysis", "https://www.observerbd.com/details.php?id=305645")
         ]
         for title, link in articles_2:
@@ -166,7 +192,7 @@ with tab_scholar:
     st.markdown("[![Scholar](https://img.shields.io/badge/Google_Scholar-Explore_Papers-blue?style=for-the-badge&logo=google-scholar)](https://scholar.google.com/citations?hl=en&user=3qtQiPAAAAAJ)")
     st.info("**Featured Book:** Bangladesh Share Market: Looking Ahead after Two Big Crashes ([Rokomari Link](https://www.rokomari.com/book/80324/bangladesh-share-market-looking-ahead-after-two-big-crashes))")
 
-# 05. TV MEDIA
+# 06. TV MEDIA
 st.markdown("<div class='section-header'>📺 TV Media Appearances</div>", unsafe_allow_html=True)
 v1, v2, v3 = st.columns(3)
 with v1: st.video("https://www.youtube.com/watch?v=dyUHqGHcHm0")
