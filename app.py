@@ -109,15 +109,15 @@ st.markdown("<div class='section-header'>💼 Institutional Leadership & Impact<
 col_w1, col_w2 = st.columns([1, 4])
 with col_w1:
     wave_l = get_img("WAVE LOGO")
-    if wave_l: st.image(wave_l, width=140) # Slightly increased size
+    if wave_l: st.image(wave_l, width=140)
 with col_w2:
     st.subheader("Deputy Coordinator — WAVE Foundation")
     st.info("Senior Management | Research & Donor Partnerships | 2018 – Present")
     st.markdown("""
-    *   **Strategic Funding:** Secured **USD 15M+** from World Bank, USAID, GIZ, and Water.org by leading high-stakes donor negotiations[cite: 1].
-    *   **Portfolio Oversight:** Directed multi-sectoral operations reaching **200,000+ households**, ensuring rigorous alignment with international accountability standards[cite: 1].
-    *   **Digital Transformation:** Spearheaded organizational shift to **Paperless Microfinance**, improving transparency and MRA compliance[cite: 1].
-    *   **Governance:** Designed MEAL frameworks with real-time dashboards to facilitate evidence-led adaptive management[cite: 1].
+    *   **Strategic Funding:** Secured **USD 15M+** from World Bank, USAID, GIZ, and Water.org by leading high-stakes donor negotiations.
+    *   **Portfolio Oversight:** Directed multi-sectoral operations reaching **200,000+ households**, ensuring rigorous alignment with international accountability standards.
+    *   **Digital Transformation:** Spearheaded organizational shift to **Paperless Microfinance**, improving transparency and MRA compliance.
+    *   **Governance:** Designed MEAL frameworks with real-time dashboards to facilitate evidence-led adaptive management.
     """)
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -126,14 +126,14 @@ st.markdown("<br>", unsafe_allow_html=True)
 col_b1, col_b2 = st.columns([1, 4])
 with col_b1:
     brac_l = get_img("BRAC LOGO")
-    if brac_l: st.image(brac_l, width=140) # Slightly increased size
+    if brac_l: st.image(brac_l, width=140)
 with col_b2:
     st.subheader("Young Professional — BRAC International")
     st.info("Management Traineeship & Global Coordination | 2011 – 2015")
     st.markdown("""
-    *   **Institutional DNA:** Selected for highly competitive management traineeship at **BRAC Learning Centre (BLC)**, mastering standardized NGO operations[cite: 1].
-    *   **Cross-Border Operations:** Supported monitoring of microfinance and youth programmes across **5 BRAC International country offices**[cite: 1].
-    *   **System Standardization:** Integrated MIS and financial reporting processes, facilitating capacity building for **10,000+ participants**[cite: 1].
+    *   **Institutional DNA:** Selected for highly competitive management traineeship at **BRAC Learning Centre (BLC)**, mastering standardized NGO operations.
+    *   **Cross-Border Operations:** Supported monitoring of microfinance and youth programmes across **5 BRAC International country offices**.
+    *   **System Standardization:** Integrated MIS and financial reporting processes, facilitating capacity building for **10,000+ participants**.
     """)
 
 # 04. ACADEMIC ARCHITECTURE & GLOBAL CERTIFICATIONS
@@ -143,48 +143,48 @@ c_edu, c_cert = st.columns([1, 1.8])
 with c_edu:
     st.markdown("### Higher Education")
     du_l = get_img("Dhaka University")
-    if du_l: st.image(du_l, width=85) # Slightly increased size
+    if du_l: st.image(du_l, width=85)
     st.markdown("""
     <div class='edu-card'>
-    <b>PG Diploma in International Relations</b><br>University of Dhaka[cite: 1]
+    <b>PG Diploma in International Relations</b><br>University of Dhaka
     </div>
     <div class='edu-card'>
-    <b>MBA in AIS (GPA 3.85)</b><br>University of Dhaka[cite: 1]
+    <b>MBA in AIS (GPA 3.85)</b><br>University of Dhaka
     </div>
     """, unsafe_allow_html=True)
 
 with c_cert:
     st.markdown("### Global Certifications")
-    l1, l2, l3, l4 = st.columns(4) # Added a column for PRIA
+    l1, l2, l3, l4 = st.columns(4)
     with l1:
         tft = get_img("Tufts")
         if tft: st.image(tft, width=100)
-        st.caption("Digital Finance (Tufts, USA)[cite: 1]")
+        st.caption("Digital Finance (Tufts, USA)")
     with l2:
         goog = get_img("Google")
         if goog: st.image(goog, width=100)
-        st.caption("Machine Learning & AI[cite: 1]")
+        st.caption("Machine Learning & AI")
     with l3:
         undp = get_img("UNDP")
         if undp: st.image(undp, width=120)
-        st.caption("Climate Finance (BIOFIN)[cite: 1]")
+        st.caption("Climate Finance (BIOFIN)")
     with l4:
-        pria = get_img("PRIA") # Finding the PRIA logo
+        pria = get_img("PRIA") 
         if pria: st.image(pria, width=100)
-        st.caption("MEAL & Impact Assessment (PRIA, India)[cite: 1]")
+        st.caption("MEAL & Impact Assessment (PRIA, India)")
 
 # 05. ACADEMIC ENGAGEMENT (Guest Lecturer)
 st.markdown("<div class='section-header'>🏫 Academic Engagement</div>", unsafe_allow_html=True)
 v_col1, v_col2, v_col3 = st.columns(3)
 with v_col1:
     img1 = get_img("South Asia")
-    if img1: st.image(img1, width=180) # Slightly boro kora
+    if img1: st.image(img1, width=180)
 with v_col2:
     img2 = get_img("Royal University")
-    if img2: st.image(img2, width=180) # Slightly boro kora
+    if img2: st.image(img2, width=180)
 with v_col3:
     img3 = get_img("Canadian University")
-    if img3: st.image(img3, width=180) # Slightly boro kora
+    if img3: st.image(img3, width=180)
 
 # 06. THOUGHT LEADERSHIP
 st.markdown("<div class='section-header'>📝 Policy Advocacy & Publications</div>", unsafe_allow_html=True)
@@ -217,8 +217,7 @@ with tab1:
 with tab2:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("[![Scholar](https://img.shields.io/badge/Google_Scholar-Academic_Profile-blue?style=for-the-badge&logo=google-scholar)](https://scholar.google.com/citations?hl=en&user=3qtQiPAAAAAJ)")
-    st.info("**Published Work:** Author of 12 Peer-Reviewed Papers and 2 Books on Economics & Share Market[cite: 1].")
-    # Featured Book Link Added
+    st.info("**Published Work:** Author of 12 Peer-Reviewed Papers and 2 Books on Economics & Share Market.")
     st.markdown("""
     <div style='background: rgba(255, 204, 0, 0.1); padding: 15px; border-radius: 10px; border: 1px solid #ffcc00;'>
     <b>Featured Publication:</b><br>
