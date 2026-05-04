@@ -2,171 +2,193 @@ import streamlit as st
 import os
 
 # 00. PAGE CONFIG
-st.set_page_config(page_title="Md. Toufique Hossain | Portfolio", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Md. Toufique Hossain | Executive Portfolio", layout="wide")
 
-# 01. STYLING ENGINE (The Smart Look)
+# Advanced Styling (Cleaning the Mess)
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-    
-    html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
-    
     .stApp {
-        background: radial-gradient(circle at top left, #1a1c2c, #0d1117);
-        color: #e6edf3;
+        background-color: #0d1117;
+        background-image: linear-gradient(rgba(13, 17, 23, 0.96), rgba(13, 17, 23, 0.96)),
+            url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
     }
-
-    /* Glassmorphism Cards */
-    .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        padding: 25px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        margin-bottom: 20px;
-        transition: 0.4s ease;
-    }
-    .glass-card:hover {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 204, 0, 0.3);
-        transform: translateY(-5px);
-    }
-
-    .main-title { 
-        font-size: 3.8rem; font-weight: 800; 
-        background: linear-gradient(to right, #ffcc00, #f39c12);
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        margin-bottom: 0px;
-    }
-
-    .tagline { font-size: 1.2rem; color: #8b949e; font-weight: 300; letter-spacing: 1px; }
-
-    .section-label {
-        color: #ffcc00; font-size: 0.9rem; font-weight: 700; 
-        text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;
-    }
-
-    .experience-title { color: #ffffff; font-weight: 600; font-size: 1.3rem; }
-    .experience-org { color: #ffcc00; font-size: 1rem; margin-bottom: 10px; }
+    .main-title { font-size: 3.5rem; font-weight: 900; color: #ffcc00; letter-spacing: -1px; line-height: 1.1; margin-top: -10px; }
+    .sub-title { font-size: 1.4rem; color: #e5e7eb; font-weight: 300; margin-bottom: 20px; }
     
-    /* Article links */
+    .section-header {
+        border-left: 6px solid #ffcc00;
+        padding: 10px 20px;
+        color: #ffffff;
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        background: rgba(255, 204, 0, 0.05);
+        letter-spacing: 1px;
+    }
+    
+    .hero-box { padding: 10px 0px; } /* Removed the background box from top */
+    
+    .expertise-card {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 20px; border-radius: 12px; border-bottom: 3px solid #ffcc00;
+        height: 100%; transition: 0.3s;
+    }
+    .expertise-card:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-5px); }
+    
     .article-box {
-        padding: 10px 15px; border-radius: 8px; background: rgba(255,255,255,0.02);
-        border-left: 3px solid #ffcc00; margin-bottom: 10px; text-decoration: none; display: block;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px 18px; border-radius: 8px; margin-bottom: 10px;
+        border-left: 3px solid #ffcc00; transition: 0.2s;
     }
-    .article-box:hover { background: rgba(255,204,0,0.1); }
+    .article-box:hover { background: rgba(255, 204, 0, 0.1); }
+    .article-link { color: #60a5fa !important; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     
-    hr { border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 40px 0; }
+    .edu-card {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 15px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 15px;
+    }
     </style>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# Helper function for images
-def get_img(terms):
+# Smart Image Helper
+def get_img(search_terms):
     files = [f for f in os.listdir('.') if os.path.isfile(f)]
     for f in files:
-        for t in terms:
-            if t.lower() in f.lower(): return f
+        for term in search_terms:
+            if term.lower() in f.lower(): return f
     return None
 
-# 02. HERO SECTION
+# 01. EXECUTIVE IDENTITY (Hero Section)
 with st.container():
-    c1, c2 = st.columns([1, 2.5], gap="large")
-    with c1:
-        profile_pic = get_img(["toufique-jpg"])
-        if profile_pic:
-            st.image(profile_pic, use_container_width=True)
-    with c2:
+    col_img, col_txt = st.columns([1, 2.2])
+    with col_img:
+        # Reference: image_b66a27.jpg (Your profile picture)
+        pic = get_img(["toufique-jpg", "image_b66a27"])
+        if pic: st.image(pic, width=380)
+    with col_txt:
+        st.markdown("<div class='hero-box'>", unsafe_allow_html=True)
         st.markdown("<h1 class='main-title'>Md. Toufique Hossain</h1>", unsafe_allow_html=True)
-        st.markdown("<p class='tagline'>Senior Development Leader & Strategic Consultant</p>", unsafe_allow_html=True)
+        st.markdown("<p class='sub-title'>Senior Development Leader & Programme Operations Strategist</p>", unsafe_allow_html=True)
         st.markdown("""
-            <p style='font-size: 1.1rem; line-height: 1.7; color: #9ca3af;'>
-            14 years of driving high-impact programmes in Bangladesh. Expert in managing <b>$15M+ portfolios</b> 
-            and blending financial governance with grassroots social engineering. 
-            Shaping policy through media advocacy and digital innovation.
-            </p>
+        <p style='color: #9ca3af; font-size: 1.1rem; line-height: 1.6;'>
+        Fourteen years of leadership in combining financial governance with social intelligence. 
+        Managing <b>USD 15M+</b> multi-donor portfolios while shaping policy through evidence-based advocacy.
+        </p>
+        <p style='color: #d1d5db; font-size: 0.9rem;'>
+        📍 Dhaka, Bangladesh | ✉️ toufique2010@gmail.com | 📞 +880 1779 700 327 | 
+        <a href='https://www.linkedin.com/in/toufique-hossain-7b560140/' style='color:#ffcc00;'>LinkedIn Profile</a>
+        </p>
         """, unsafe_allow_html=True)
-        
-        # Quick Contact
-        st.markdown("""
-            <p style='font-size: 0.9rem;'>
-            📧 toufique2010@gmail.com | 📞 +880 1779 700 327 | 📍 Dhaka, Bangladesh
-            </p>
-        """, unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
-st.markdown("<hr>", unsafe_allow_html=True)
+# 02. STRATEGIC CORE COMPETENCIES
+st.markdown("<div class='section-header'>🎯 Strategic Core Competencies</div>", unsafe_allow_html=True)
+e1, e2, e3 = st.columns(3)
+with e1:
+    st.markdown("<div class='expertise-card'><b>Strategic Programme Leadership</b><br><small>End-to-end management of multi-sectoral programmes (WASH, Livelihoods, Climate Resilience) across 15 districts.</small></div>", unsafe_allow_html=True)
+with e2:
+    st.markdown("<div class='expertise-card'><b>Resource Mobilisation</b><br><small>Secured <b>USD 15M+</b> from World Bank, USAID, GIZ, and GAIN. Full-cycle expertise from grant compliance.</small></div>", unsafe_allow_html=True)
+with e3:
+    st.markdown("<div class='expertise-card'><b>MEAL Framework Architecture</b><br><small>Deploying real-time risk dashboards to transition institutional culture toward evidence-led management.</small></div>", unsafe_allow_html=True)
 
-# 03. CORE IMPACT (Cards)
-st.markdown("<p class='section-label'>Expertise</p>", unsafe_allow_html=True)
-i1, i2, i3 = st.columns(3)
-with i1:
-    st.markdown("<div class='glass-card'><b>Programme Leadership</b><br><small style='color:#8b949e;'>Managing multi-sectoral operations across 15+ districts.</small></div>", unsafe_allow_html=True)
-with i2:
-    st.markdown("<div class='glass-card'><b>Resource Mobilization</b><br><small style='color:#8b949e;'>Secured funding from World Bank, USAID, GIZ & GAIN.</small></div>", unsafe_allow_html=True)
-with i3:
-    st.markdown("<div class='glass-card'><b>Digital Finance</b><br><small style='color:#8b949e;'>Pioneer in paperless microfinance & AI-driven governance.</small></div>", unsafe_allow_html=True)
-
-# 04. PROFESSIONAL JOURNEY
-st.markdown("<p class='section-label'>Experience</p>", unsafe_allow_html=True)
+# 03. PROFESSIONAL JOURNEY
+st.markdown("<div class='section-header'>💼 Institutional Leadership & Impact</div>", unsafe_allow_html=True)
 
 # WAVE Foundation
-with st.container():
-    w1, w2 = st.columns([1, 5])
-    with w1:
-        wave_logo = get_img(["WAVE LOGO"])
-        if wave_logo: st.image(wave_logo, width=100)
-    with w2:
-        st.markdown("<div class='experience-title'>Deputy Coordinator</div>", unsafe_allow_html=True)
-        st.markdown("<div class='experience-org'>WAVE Foundation | 2018 – Present</div>", unsafe_allow_html=True)
-        st.markdown("""
-        - Leading **$15M+ portfolio** management for WASH, Climate Resilience, and Livelihoods.
-        - Strategic lead for donor compliance (World Bank, USAID, GIZ).
-        - Architect of **Digital Microfinance** shift, ensuring 100% transparency.
-        """)
+col_w1, col_w2 = st.columns([1, 4])
+with col_w1:
+    wave_l = get_img(["WAVE LOGO"])
+    if wave_l: st.image(wave_l, width=150)
+with col_w2:
+    st.subheader("Deputy Coordinator — WAVE Foundation")
+    st.info("Senior Management | Research & Donor Partnerships | 2018 – Present")
+    st.markdown("""
+    *   **Strategic Funding:** Secured **USD 15M+** from World Bank, USAID, GIZ, and Water.org.
+    *   **Portfolio Oversight:** Directed multi-sectoral operations reaching **200,000+ households**.
+    *   **Digital Transformation:** Spearheaded organizational shift to **Paperless Microfinance**.
+    *   **Risk & Compliance:** Established rigorous internal control systems and risk mitigation protocols.
+    *   **Stakeholder Advocacy:** Led national-level policy dialogues and consortium meetings.
+    """)
 
-st.write("") # Spacer
+st.write("\n")
 
 # BRAC International
-with st.container():
-    b1, b2 = st.columns([1, 5])
-    with b1:
-        brac_logo = get_img(["BRAC LOGO"])
-        if brac_logo: st.image(brac_logo, width=100)
-    with b2:
-        st.markdown("<div class='experience-title'>Young Professional</div>", unsafe_allow_html=True)
-        st.markdown("<div class='experience-org'>BRAC International | 2011 – 2015</div>", unsafe_allow_html=True)
-        st.markdown("- Coordinated global MIS for Africa and Asia operations.")
+col_b1, col_b2 = st.columns([1, 4])
+with col_b1:
+    brac_l = get_img(["BRAC LOGO"])
+    if brac_l: st.image(brac_l, width=150)
+with col_b2:
+    st.subheader("Young Professional — BRAC International")
+    st.info("Management Traineeship & Global Coordination | 2011 – 2015")
+    st.markdown("""
+    *   **Institutional DNA:** Selected for management traineeship at **BRAC Learning Centre (BLC)**.
+    *   **Global Coordination:** Supported monitoring across **5 BRAC International country offices**.
+    *   **System Integration:** Synchronized MIS and financial reporting processes for **10,000+ participants**.
+    *   **Operational Efficiency:** Identified process bottlenecks and implemented streamlined documentation.
+    """)
 
-st.markdown("<hr>", unsafe_allow_html=True)
+# 04. ACADEMIC & CERTIFICATIONS
+st.markdown("<div class='section-header'>🎓 Education & Global Certifications</div>", unsafe_allow_html=True)
+c_edu, c_cert = st.columns([1, 1.8])
 
-# 05. ACADEMIC ENGAGEMENT & LOGOS
-st.markdown("<p class='section-label'>Academic Partnerships</p>", unsafe_allow_html=True)
-uni_cols = st.columns(5)
-unis = ["Canadian", "Royal University", "South Asia", "Dhaka University", "Google"]
-for i, uni in enumerate(unis):
-    with uni_cols[i]:
-        logo = get_img([uni])
-        if logo: st.image(logo, use_container_width=True)
+with c_edu:
+    st.markdown("### Higher Education")
+    du_l = get_img(["Dhaka University Logo"])
+    if du_l: st.image(du_l, width=100)
+    st.markdown("""
+    <div class='edu-card'><b>PG Diploma in International Relations</b><br>University of Dhaka</div>
+    <div class='edu-card'><b>MBA in AIS (GPA 3.85)</b><br>University of Dhaka</div>
+    """, unsafe_allow_html=True)
 
-st.markdown("<hr>", unsafe_allow_html=True)
+with c_cert:
+    st.markdown("### Global Certifications")
+    l1, l2, l3, l4 = st.columns(4)
+    with l1:
+        tft = get_img(["Tufts"])
+        if tft: st.image(tft, width=110); st.caption("Digital Finance")
+    with l2:
+        goog = get_img(["Google"])
+        if goog: st.image(goog, width=110); st.caption("AI & ML")
+    with l3:
+        undp = get_img(["UNDP_BIOFIN"])
+        if undp: st.image(undp, width=130); st.caption("Climate Finance")
+    with l4:
+        meal_l = get_img(["PRIYA"]) 
+        if meal_l: st.image(meal_l, width=110); st.caption("MEAL & Impact")
 
-# 06. THOUGHT LEADERSHIP (Simplified Links)
-st.markdown("<p class='section-label'>Policy Advocacy & Media</p>", unsafe_allow_html=True)
-pub_left, pub_right = st.columns(2)
+# 05. ACADEMIC ENGAGEMENT LOGOS
+st.markdown("<div class='section-header'>🏫 Academic Engagement</div>", unsafe_allow_html=True)
+v_col1, v_col2, v_col3 = st.columns(3)
+with v_col1:
+    img1 = get_img(["South Asia"])
+    if img1: st.image(img1, width=200)
+with v_col2:
+    img2 = get_img(["Royal University"])
+    if img2: st.image(img2, width=200)
+with v_col3:
+    img3 = get_img(["Canadian University"])
+    if img3: st.image(img3, width=200)
 
-with pub_left:
-    st.markdown("### 📰 National Columns")
-    links = [
-        ("The Business Standard Archive", "https://www.tbsnews.net/author/md-toufique-hossain"),
-        ("Financial Express: Spin-off Effects", "https://thefinancialexpress.com.bd/views/analysis/spin-off-effect-on-lower-income-groups-1605888994"),
-        ("Daily Sun: IR Analysis", "https://epaper.daily-sun.com/view/7/61676/2025-02-18")
-    ]
-    for text, url in links:
-        st.markdown(f"<a href='{url}' class='article-box' style='color: #60a5fa; text-decoration:none;'>{text}</a>", unsafe_allow_html=True)
+# 06. THOUGHT LEADERSHIP
+st.markdown("<div class='section-header'>📝 Policy Advocacy & Publications</div>", unsafe_allow_html=True)
+tab1, tab2 = st.tabs(["📰 National Policy Columns", "📊 Scholar & Books"])
+with tab1:
+    ca, cb = st.columns(2)
+    with ca:
+        links1 = [
+            ("The Business Standard Archive", "https://www.tbsnews.net/author/md-toufique-hossain"),
+            ("Daily Sun: IR Analysis", "https://epaper.daily-sun.com/view/7/61676/2025-02-18")
+        ]
+        for text, url in links1: st.markdown(f"<div class='article-box'><a class='article-link' href='{url}'>● {text}</a></div>", unsafe_allow_html=True)
+    with cb:
+        st.video("https://www.youtube.com/watch?v=dyUHqGHcHm0")
 
-with pub_right:
-    st.markdown("### 📺 Media Presence")
-    st.video("https://www.youtube.com/watch?v=dyUHqGHcHm0")
+with tab2:
+    st.info("Author of 12 Peer-Reviewed Papers and 2 Books on Economics.")
+    st.markdown("[View on Amazon](https://www.amazon.com/-/es/Md-Toufique-Hossain/dp/9849048565)")
 
-# 07. FOOTER
-st.markdown("<br><br>", unsafe_allow_html=True)
-st.markdown("<center style='color:#4b5563; font-size:0.8rem;'>Md. Toufique Hossain &copy; 2026 | Optimized for Web Deployment</center>", unsafe_allow_html=True)
+# FOOTER
+st.markdown("<br><hr><center style='color: #6b7280; padding-bottom: 50px;'>Md. Toufique Hossain | Executive Portfolio 2026</center>", unsafe_allow_html=True)
