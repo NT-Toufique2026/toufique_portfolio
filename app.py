@@ -62,7 +62,11 @@ st.markdown("""
 with st.container():
     col_img, col_txt = st.columns([1, 2.2])
     with col_img:
-        st.image("toufique-jpg.png" if os.path.exists("toufique-jpg.png") else "https://via.placeholder.com/400", width=380)
+        # Checking multiple extensions for profile pic
+        if os.path.exists("toufique-jpg.png"): st.image("toufique-jpg.png", width=380)
+        elif os.path.exists("toufique-jpg.jpg"): st.image("toufique-jpg.jpg", width=380)
+        else: st.image("https://via.placeholder.com/400", width=380)
+        
     with col_txt:
         st.markdown(f"""
             <div class='hero-container'>
@@ -78,7 +82,9 @@ with st.container():
 # 02. EXPERIENCE
 st.markdown("<div class='section-header'>💼 Professional Leadership</div>", unsafe_allow_html=True)
 col1, col2 = st.columns([1, 4])
-with col1: st.image("WAVE LOGO.jpeg", width=110)
+with col1: 
+    if os.path.exists("WAVE LOGO.jpeg"): st.image("WAVE LOGO.jpeg", width=110)
+    elif os.path.exists("WAVE LOGO.jpg"): st.image("WAVE LOGO.jpg", width=110)
 with col2:
     st.subheader("Deputy Coordinator — WAVE Foundation")
     st.write("**Senior Management | 2018 - Present**")
@@ -137,27 +143,26 @@ st.write("\n")
 v_col1, v_col2, v_col3 = st.columns(3)
 
 with v_col1:
-    # University of South Asia (JPG)
-    if os.path.exists("University of South Asia.jpg"):
-        st.image("University of South Asia.jpg", width=160)
-    else:
-        st.write("**University of South Asia**")
+    # University of South Asia (Checking all formats)
+    if os.path.exists("University of South Asia.jpg"): st.image("University of South Asia.jpg", width=160)
+    elif os.path.exists("University of South Asia.jpeg"): st.image("University of South Asia.jpeg", width=160)
+    elif os.path.exists("University of South Asia.png"): st.image("University of South Asia.png", width=160)
+    else: st.write("**University of South Asia**")
     st.caption("Guest Lecturer")
 
 with v_col2:
-    # Royal University (JPG)
-    if os.path.exists("Royal University.jpg"):
-        st.image("Royal University.jpg", width=160)
-    else:
-        st.write("**Royal University of Dhaka**")
+    # Royal University (Checking all formats)
+    if os.path.exists("Royal University.jpg"): st.image("Royal University.jpg", width=160)
+    elif os.path.exists("Royal University.jpeg"): st.image("Royal University.jpeg", width=160)
+    elif os.path.exists("Royal University.png"): st.image("Royal University.png", width=160)
+    else: st.write("**Royal University of Dhaka**")
     st.caption("Guest Lecturer")
 
 with v_col3:
-    # Canadian University (PNG)
-    if os.path.exists("Canadian University.png"):
-        st.image("Canadian University.png", width=160)
-    else:
-        st.write("**Canadian University of Bangladesh**")
+    # Canadian University
+    if os.path.exists("Canadian University.png"): st.image("Canadian University.png", width=160)
+    elif os.path.exists("Canadian University.jpg"): st.image("Canadian University.jpg", width=160)
+    else: st.write("**Canadian University of Bangladesh**")
     st.caption("Guest Lecturer")
 
 
