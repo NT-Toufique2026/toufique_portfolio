@@ -27,22 +27,22 @@ st.markdown("""
         background: rgba(255, 255, 255, 0.03);
         padding: 40px; border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .info-card {
+    .expertise-card {
         background: rgba(255, 255, 255, 0.04);
-        padding: 20px; border-radius: 15px; border-top: 4px solid #ffcc00;
-        height: 100%;
+        padding: 20px; border-radius: 12px; border-top: 3px solid #ffcc00;
+        height: 100%; transition: 0.3s;
     }
+    .expertise-card:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-5px); }
     .article-item {
         background: rgba(255, 255, 255, 0.03);
         padding: 10px 15px; border-radius: 8px; margin-bottom: 8px;
         border-left: 3px solid #ffcc00;
     }
-    .article-item a { color: #60a5fa !important; text-decoration: none; font-weight: 600; font-size: 1rem; }
-    .article-item a:hover { color: #ffcc00 !important; }
+    .article-item a { color: #60a5fa !important; text-decoration: none; font-weight: 600; }
     </style>
     """, unsafe_allow_html=True)
 
-# Helper function for Image Finding
+# Universal Image Finder Function
 def get_img(search):
     files = [f for f in os.listdir('.') if os.path.isfile(f)]
     for f in files:
@@ -67,8 +67,26 @@ with st.container():
             </div>
             """, unsafe_allow_html=True)
 
-# 02. EXPERIENCE (Restored full details)
+# 02. CORE EXPERTISE (Added from your screenshot)
+st.markdown("<div class='section-header'>🚀 Core Competencies</div>", unsafe_allow_html=True)
+e1, e2, e3 = st.columns(3)
+with e1:
+    st.markdown("<div class='expertise-card'><b>Strategic Programme Leadership</b><br><small>End-to-end management of multi-sectoral programmes across 15 districts and 200,000+ households. Governed by SPHERE, CHS, and DEC standards.</small></div>", unsafe_allow_html=True)
+with e2:
+    st.markdown("<div class='expertise-card'><b>Resource Mobilisation</b><br><small>USD 15M+ secured from World Bank, USAID, GIZ, GAIN, and Water.org. Expertise in donor negotiation and grant compliance.</small></div>", unsafe_allow_html=True)
+with e3:
+    st.markdown("<div class='expertise-card'><b>MEAL Framework Architecture</b><br><small>Designed real-time risk dashboards and gender-disaggregated indicators for evidence-led adaptive management.</small></div>", unsafe_allow_html=True)
+
+st.write("\n")
+e4, e5 = st.columns(2)
+with e4:
+    st.markdown("<div class='expertise-card'><b>Policy Advocacy & Thought Leadership</b><br><small>12 peer-reviewed papers, 2 books, 100+ national columns, and 20+ TV appearances shaping the policy environment.</small></div>", unsafe_allow_html=True)
+with e5:
+    st.markdown("<div class='expertise-card'><b>AI, Digital Finance & Climate Innovation</b><br><small>Google AI & UNDP BIOFIN certified. Applied AI and digital tools to cut transaction costs by 60% at WAVE Foundation.</small></div>", unsafe_allow_html=True)
+
+# 03. PROFESSIONAL LEADERSHIP
 st.markdown("<div class='section-header'>💼 Professional Leadership</div>", unsafe_allow_html=True)
+# WAVE Foundation
 col1, col2 = st.columns([1, 4])
 with col1: 
     wave = get_img("WAVE LOGO")
@@ -80,11 +98,11 @@ with col2:
     - **Resource Mobilization:** Successfully raised and managed over **USD 15M+** from global donors including World Bank, USAID, GIZ, and GAIN.
     - **Strategic Oversight:** Leading multi-sectoral development portfolios across 15 districts, impacting over **200,000 households**.
     - **Digital Innovation:** Spearheaded the organizational shift to **Paperless Microfinance**, optimizing operational efficiency and transparency.
-    - **Financial Governance:** Ensuring robust financial compliance and audit-readiness for international development projects.
-    - **Stakeholder Engagement:** Building strategic partnerships with government agencies and international NGOs.
+    - **Financial Governance:** Ensuring robust financial compliance and audit-readiness for high-value international development projects.
     """)
 
-st.markdown("<hr style='border: 0.5px solid #333'>", unsafe_allow_html=True)
+st.markdown("<hr style='border: 0.1px solid #333'>", unsafe_allow_html=True)
+# BRAC
 col3, col4 = st.columns([1, 4])
 with col3: 
     brac = get_img("BRAC LOGO")
@@ -95,35 +113,8 @@ with col4:
     st.markdown("""
     - **Global Operations:** Standardized financial reporting systems across **5 BRAC International country offices**.
     - **Leadership Training:** Successfully completed high-intensity management training at **BRAC Learning Centre (BLC)**.
-    - **Process Improvement:** Implemented streamlined data management protocols to improve field-level reporting accuracy.
-    - **Capacity Building:** Conducted financial literacy workshops for field staff to enhance institutional efficiency.
+    - **Process Improvement:** Implemented streamlined data protocols to improve field-level reporting accuracy.
     """)
-
-# 03. GLOBAL CERTS & EDUCATION
-st.markdown("<div class='section-header'>🎓 Global Expertise & Education</div>", unsafe_allow_html=True)
-c_edu, c_cert = st.columns([1, 2.2])
-with c_edu:
-    st.markdown("<div class='info-card'>", unsafe_allow_html=True)
-    du = get_img("Dhaka University")
-    if du: st.image(du, width=75)
-    st.markdown("### Academic\n**MBA in AIS**\nDhaka University | GPA 3.85\n\n**PGD in International Relations**")
-    st.markdown("</div>", unsafe_allow_html=True)
-with c_cert:
-    st.markdown("<div class='info-card'><h3>Certifications</h3>", unsafe_allow_html=True)
-    l1, l2, l3 = st.columns(3)
-    with l1: 
-        tft = get_img("Tufts")
-        if tft: st.image(tft, width=90)
-        st.caption("Tufts University, USA")
-    with l2: 
-        goog = get_img("Google")
-        if goog: st.image(goog, width=90)
-        st.caption("AI & ML")
-    with l3: 
-        undp = get_img("UNDP")
-        if undp: st.image(undp, width=120)
-        st.caption("UNDP BIOFIN")
-    st.markdown("</div>", unsafe_allow_html=True)
 
 # 04. ACADEMIC ENGAGEMENT (University Logos)
 st.markdown("<div class='section-header'>🏫 Academic Engagement (Guest Lecturer)</div>", unsafe_allow_html=True)
@@ -131,45 +122,30 @@ v_col1, v_col2, v_col3 = st.columns(3)
 with v_col1:
     img1 = get_img("South Asia")
     if img1: st.image(img1, width=160)
-    else: st.write("**University of South Asia**")
 with v_col2:
     img2 = get_img("Royal University")
     if img2: st.image(img2, width=160)
-    else: st.write("**Royal University of Dhaka**")
 with v_col3:
     img3 = get_img("Canadian University")
     if img3: st.image(img3, width=160)
-    else: st.write("**Canadian University of Bangladesh**")
 
-# 05. ALL ARTICLES (Full Links Restored)
+# 05. POLICY COLUMNS & PUBLICATIONS
 st.markdown("<div class='section-header'>📝 Policy Columns & Publications</div>", unsafe_allow_html=True)
-tab_column, tab_scholar = st.tabs(["📰 National Columns (Full List)", "📊 Google Scholar"])
-
-with tab_column:
+tab1, tab2 = st.tabs(["📰 National Columns", "📊 Scholar & Books"])
+with tab1:
     col_a, col_b = st.columns(2)
     with col_a:
-        arts = [
-            ("Financial Express: Trump's 2nd Term", "https://today.thefinancialexpress.com.bd/features-analysis/trumps-second-term-the-implications-for-others-1741975274"),
-            ("The Business Standard: Author Archive", "https://www.tbsnews.net/author/md-toufique-hossain"),
-            ("Daily Observer: IMF Strategies", "https://observerbd.com/news/513265"),
-            ("Prothom Alo: Policy Perspective", "https://www.prothomalo.com/opinion/column/8tyv0229rj")
-        ]
-        for title, link in arts:
-            st.markdown(f"<div class='article-item'><a href='{link}' target='_blank'>● {title}</a></div>", unsafe_allow_html=True)
+        arts = [("Financial Express: Trump's 2nd Term", "https://today.thefinancialexpress.com.bd/features-analysis/trumps-second-term-the-implications-for-others-1741975274"),
+                ("The Business Standard: Archive", "https://www.tbsnews.net/author/md-toufique-hossain"),
+                ("Daily Observer: IMF Strategies", "https://observerbd.com/news/513265"),
+                ("Prothom Alo: Policy Perspective", "https://www.prothomalo.com/opinion/column/8tyv0229rj")]
+        for t, l in arts: st.markdown(f"<div class='article-item'><a href='{l}' target='_blank'>● {t}</a></div>", unsafe_allow_html=True)
     with col_b:
-        arts2 = [
-            ("Financial Express: Lower income groups", "https://thefinancialexpress.com.bd/views/analysis/spin-off-effect-on-lower-income-groups-1605888994"),
-            ("Banik Barta: Editorial", "https://bonikbarta.com/editorial/f2WqYrUw1a1fFhza"),
-            ("Business Mirror: Banking Crisis", "https://epaper.bmirror.net/nogor-edition/2026-03-04/4"),
-            ("Daily Observer: Share Market", "https://www.observerbd.com/details.php?id=305645")
-        ]
-        for title, link in arts2:
-            st.markdown(f"<div class='article-item'><a href='{link}' target='_blank'>● {title}</a></div>", unsafe_allow_html=True)
-
-with tab_scholar:
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("[![Scholar](https://img.shields.io/badge/Google_Scholar-Explore-blue)](https://scholar.google.com/citations?hl=en&user=3qtQiPAAAAAJ)")
-    st.info("**Featured Book:** Bangladesh Share Market ([Rokomari Link](https://www.rokomari.com/book/80324/bangladesh-share-market-looking-ahead-after-two-big-crashes))")
+        arts2 = [("Financial Express: Spin-off effect", "https://thefinancialexpress.com.bd/views/analysis/spin-off-effect-on-lower-income-groups-1605888994"),
+                 ("Banik Barta: Editorial", "https://bonikbarta.com/editorial/f2WqYrUw1a1fFhza"),
+                 ("Business Mirror: Banking Crisis", "https://epaper.bmirror.net/nogor-edition/2026-03-04/4"),
+                 ("Daily Observer: Share Market", "https://www.observerbd.com/details.php?id=305645")]
+        for t, l in arts2: st.markdown(f"<div class='article-item'><a href='{l}' target='_blank'>● {t}</a></div>", unsafe_allow_html=True)
 
 # 06. TV MEDIA
 st.markdown("<div class='section-header'>📺 TV Media Appearances</div>", unsafe_allow_html=True)
@@ -178,4 +154,4 @@ with v1: st.video("https://www.youtube.com/watch?v=dyUHqGHcHm0")
 with v2: st.video("https://www.youtube.com/watch?v=gx4uO1DYkuQ")
 with v3: st.video("https://www.youtube.com/watch?v=GZYm33tvWls")
 
-st.markdown("<br><hr><center style='color: #6b7280; padding-bottom: 50px;'>Md. Toufique Hossain | Portfolio 2026</center>", unsafe_allow_html=True)
+st.markdown("<br><hr><center style='color: #6b7280; padding-bottom: 50px;'>Md. Toufique Hossain | Executive Portfolio 2026</center>", unsafe_allow_html=True)
