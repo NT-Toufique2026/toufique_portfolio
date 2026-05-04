@@ -122,7 +122,7 @@ with c_cert:
     l1, l2, l3 = st.columns(3)
     with l1: 
         st.image("Tufts University,Fletcher School_FinTech.jpg", width=90)
-        st.caption("**Tufts University, Fletcher School, USE, Digital Money**") # Updated
+        st.caption("**Tufts University, Fletcher School, USA, Digital Money**") # Updated
     with l2: 
         st.image("Google.jpeg", width=90)
         st.caption("**AI & Machine Learning**") # Confirmed
