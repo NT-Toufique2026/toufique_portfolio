@@ -1,10 +1,10 @@
 import streamlit as st
 import os
 
-# 00. PAGE CONFIG
+# 00. PAGE CONFIG & THEME
 st.set_page_config(page_title="Md. Toufique Hossain | Executive Portfolio", layout="wide")
 
-# Styling: Ensuring no extra gaps and premium look
+# Advanced Professional Styling
 st.markdown("""
     <style>
     .stApp {
@@ -12,7 +12,7 @@ st.markdown("""
         background-image: linear-gradient(rgba(13, 17, 23, 0.96), rgba(13, 17, 23, 0.96)),
             url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
     }
-    .main-title { font-size: 3.5rem; font-weight: 900; color: #ffcc00; letter-spacing: -1px; line-height: 1.1; margin-top: -20px; }
+    .main-title { font-size: 3.5rem; font-weight: 900; color: #ffcc00; letter-spacing: -1px; line-height: 1.1; margin-top: -20px;}
     .sub-title { font-size: 1.4rem; color: #e5e7eb; font-weight: 300; margin-bottom: 20px; }
     
     .section-header {
@@ -25,6 +25,11 @@ st.markdown("""
         margin-bottom: 25px;
         text-transform: uppercase;
         background: rgba(255, 204, 0, 0.05);
+        letter-spacing: 1px;
+    }
+    
+    .hero-box {
+        padding: 10px 0px; 
     }
     
     .expertise-card {
@@ -32,15 +37,15 @@ st.markdown("""
         padding: 20px; border-radius: 12px; border-bottom: 3px solid #ffcc00;
         height: 100%; transition: 0.3s;
     }
+    .expertise-card:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-5px); }
     
     .article-box {
         background: rgba(255, 255, 255, 0.02);
         padding: 12px 18px; border-radius: 8px; margin-bottom: 10px;
         border-left: 3px solid #ffcc00; transition: 0.2s;
-        display: block; text-decoration: none;
     }
     .article-box:hover { background: rgba(255, 204, 0, 0.1); }
-    .article-link { color: #60a5fa !important; font-weight: 500; text-decoration: none; }
+    .article-link { color: #60a5fa !important; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
     
     .edu-card {
         background: rgba(255, 255, 255, 0.03);
@@ -50,7 +55,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Image Helper
+# Smart Helper function
 def get_img(search_terms):
     files = [f for f in os.listdir('.') if os.path.isfile(f)]
     for f in files:
@@ -58,13 +63,14 @@ def get_img(search_terms):
             if term.lower() in f.lower(): return f
     return None
 
-# 01. HERO SECTION
+# 01. EXECUTIVE IDENTITY (Hero Section)
 with st.container():
     col_img, col_txt = st.columns([1, 2.2])
     with col_img:
-        pic = get_img(["toufique-jpg", "image_b66a27"])
+        pic = get_img(["toufique-jpg"])
         if pic: st.image(pic, width=380)
     with col_txt:
+        st.markdown("<div class='hero-box'>", unsafe_allow_html=True)
         st.markdown("<h1 class='main-title'>Md. Toufique Hossain</h1>", unsafe_allow_html=True)
         st.markdown("<p class='sub-title'>Senior Development Leader & Programme Operations Strategist</p>", unsafe_allow_html=True)
         st.markdown("""
@@ -73,102 +79,157 @@ with st.container():
         Managing <b>USD 15M+</b> multi-donor portfolios while shaping policy through evidence-based advocacy.
         </p>
         <p style='color: #d1d5db; font-size: 0.9rem;'>
-        📧 toufique2010@gmail.com | 📞 +880 1779 700 327 | 📍 Dhaka, Bangladesh | 
+        📍 Dhaka, Bangladesh | ✉️ toufique2010@gmail.com | 📞 +880 1779 700 327 | 
         <a href='https://www.linkedin.com/in/toufique-hossain-7b560140/' style='color:#ffcc00;'>LinkedIn Profile</a>
         </p>
         """, unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
-# 02. CORE IMPACT
+# 02. STRATEGIC CORE COMPETENCIES
 st.markdown("<div class='section-header'>🎯 Strategic Core Competencies</div>", unsafe_allow_html=True)
 e1, e2, e3 = st.columns(3)
 with e1:
-    st.markdown("<div class='expertise-card'><b>Strategic Programme Leadership</b><br><small>End-to-end management of multi-sectoral programmes (WASH, Livelihoods, Climate Resilience).</small></div>", unsafe_allow_html=True)
+    st.markdown("<div class='expertise-card'><b>Strategic Programme Leadership</b><br><small>End-to-end management of multi-sectoral programmes (WASH, Livelihoods, Climate Resilience) governed by SPHERE & CHS standards.</small></div>", unsafe_allow_html=True)
 with e2:
-    st.markdown("<div class='expertise-card'><b>Resource Mobilisation</b><br><small>Secured <b>USD 15M+</b> from World Bank, USAID, GIZ, and GAIN.</small></div>", unsafe_allow_html=True)
+    st.markdown("<div class='expertise-card'><b>Resource Mobilisation</b><br><small>Secured <b>USD 15M+</b> from World Bank, USAID, GIZ, and GAIN. Full-cycle expertise from concept design to grant compliance.</small></div>", unsafe_allow_html=True)
 with e3:
-    st.markdown("<div class='expertise-card'><b>MEAL & AI Innovation</b><br><small>Real-time dashboards & paperless microfinance systems.</small></div>", unsafe_allow_html=True)
+    st.markdown("<div class='expertise-card'><b>MEAL Framework Architecture</b><br><small>Deploying real-time risk dashboards and community feedback loops to transition institutional culture toward evidence-led management.</small></div>", unsafe_allow_html=True)
 
-# 03. PROFESSIONAL MILESTONES
-st.markdown("<div class='section-header'>💼 Experience</div>", unsafe_allow_html=True)
+# 03. PROFESSIONAL MILESTONES (Experience)
+st.markdown("<div class='section-header'>💼 Institutional Leadership & Impact</div>", unsafe_allow_html=True)
+
 # WAVE Foundation
-cw1, cw2 = st.columns([1, 4])
-with cw1:
+col_w1, col_w2 = st.columns([1, 4])
+with col_w1:
     wave_l = get_img(["WAVE LOGO"])
-    if wave_l: st.image(wave_l, width=130)
-with cw2:
-    st.subheader("Deputy Coordinator — WAVE Foundation (2018 – Present)")
-    st.markdown("- Managing $15M multi-donor portfolio. Led Digital Transformation in Microfinance.")
+    if wave_l: st.image(wave_l, width=150)
+with col_w2:
+    st.subheader("Deputy Coordinator — WAVE Foundation")
+    st.info("Senior Management | Research & Donor Partnerships | 2018 – Present")
+    st.markdown("""
+    *   **Strategic Funding:** Secured **USD 15M+** from World Bank, USAID, GIZ, and Water.org by leading high-stakes donor negotiations.
+    *   **Digital Transformation:** Spearheaded organizational shift to **Paperless Microfinance**, improving transparency and MRA compliance.
+    *   **Governance & MEAL:** Designed frameworks with real-time dashboards to facilitate evidence-led adaptive management.
+    *   **Risk & Compliance:** Established rigorous internal control systems and risk mitigation protocols for multi-district operations.
+    *   **Stakeholder Advocacy:** Led national-level policy dialogues and consortium meetings to influence pro-poor financial regulations.
+    """)
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 # BRAC International
-cb1, cb2 = st.columns([1, 4])
-with cb1:
+col_b1, col_b2 = st.columns([1, 4])
+with col_b1:
     brac_l = get_img(["BRAC LOGO"])
-    if brac_l: st.image(brac_l, width=130)
-with cb2:
-    st.subheader("Young Professional — BRAC International (2011 – 2015)")
-    st.markdown("- Global MIS coordination across 5 country offices (Africa & Asia).")
-
-# 04. THOUGHT LEADERSHIP (The missing parts)
-st.markdown("<div class='section-header'>📝 Policy Advocacy & Research</div>", unsafe_allow_html=True)
-tab1, tab2, tab3 = st.tabs(["📰 National Columns", "📊 Google Scholar & Books", "📺 TV Appearances"])
-
-with tab1:
-    st.markdown("### Featured Publications in National Media")
-    col_a, col_b = st.columns(2)
-    with col_a:
-        st.markdown("""
-        <a href='https://www.tbsnews.net/author/md-toufique-hossain' class='article-box'><span class='article-link'>The Business Standard: Author Archive</span></a>
-        <a href='https://thefinancialexpress.com.bd/views/analysis/spin-off-effect-on-lower-income-groups-1605888994' class='article-box'><span class='article-link'>Financial Express: Spin-off Effect Analysis</span></a>
-        <a href='https://today.thefinancialexpress.com.bd/features-analysis/trumps-second-term-the-implications-for-others-1741975274' class='article-box'><span class='article-link'>Financial Express: Trump’s 2nd Term Implications</span></a>
-        """, unsafe_allow_html=True)
-    with col_b:
-        st.markdown("""
-        <a href='https://epaper.daily-sun.com/view/7/61676/2025-02-18' class='article-box'><span class='article-link'>Daily Sun: International Relations Analysis</span></a>
-        <a href='https://www.prothomalo.com/opinion/column/8tyv0229rj' class='article-box'><span class='article-link'>Prothom Alo: Policy Perspective (Bangla)</span></a>
-        <a href='https://bonikbarta.com/editorial/f2WqYrUw1a1fFhza' class='article-box'><span class='article-link'>Banik Barta: Financial Sector Editorial</span></a>
-        """, unsafe_allow_html=True)
-
-with tab2:
-    st.markdown("### Academic Research & Scholarly Impact")
+    if brac_l: st.image(brac_l, width=150)
+with col_b2:
+    st.subheader("Young Professional — BRAC International")
+    st.info("Management Traineeship & Global Coordination | 2011 – 2015")
     st.markdown("""
-    <div class='expertise-card'>
-    <b>Google Scholar Profile:</b> Access 12+ Peer-Reviewed Research Papers.<br>
-    <a href='https://scholar.google.com/citations?hl=en&user=3qtQiPAAAAAJ' target='_blank' style='color:#ffcc00; font-weight:bold;'>Go to Google Scholar Profile ↗️</a>
-    </div><br>
-    <div class='expertise-card'>
-    <b>Published Book:</b> Bangladesh Share Market: Looking Ahead After Two Big Crashes.<br>
-    <a href='https://www.amazon.com/-/es/Md-Toufique-Hossain/dp/9849048565' target='_blank' style='color:#ffcc00; font-weight:bold;'>View Book on Amazon ↗️</a>
+    *   **Institutional DNA:** Selected for highly competitive management traineeship at **BRAC Learning Centre (BLC)**, mastering standardized NGO operations.
+    *   **Global Coordination:** Supported monitoring of microfinance and youth programmes across **5 BRAC International country offices** (Africa & Asia).
+    *   **System Integration:** Synchronized MIS and financial reporting processes, facilitating capacity building for **10,000+ participants**.
+    *   **Operational Efficiency:** Identified process bottlenecks in field-level reporting and implemented streamlined documentation tools.
+    """)
+
+# ... (Rest of the code like Education, Certs, Publications, etc. remains the same)
+# (Due to length, I'm keeping the core changes here. You can paste the rest of the previous blocks here)
+
+# 04. ACADEMIC ARCHITECTURE & GLOBAL CERTIFICATIONS
+st.markdown("<div class='section-header'>🎓 Academic Architecture & Certifications</div>", unsafe_allow_html=True)
+c_edu, c_cert = st.columns([1, 1.8])
+
+with c_edu:
+    st.markdown("### Higher Education")
+    du_l = get_img(["Dhaka University Logo"])
+    if du_l: st.image(du_l, width=100)
+    st.markdown("""
+    <div class='edu-card'>
+    <b>PG Diploma in International Relations</b><br>University of Dhaka
+    </div>
+    <div class='edu-card'>
+    <b>MBA in AIS (GPA 3.85)</b><br>University of Dhaka
     </div>
     """, unsafe_allow_html=True)
 
-with tab3:
-    st.markdown("### TV Media & Policy Talkshows")
-    v1, v2, v3 = st.columns(3)
-    with v1: 
-        st.video("https://www.youtube.com/watch?v=dyUHqGHcHm0")
-        st.caption("Talkshow on National Economy")
-    with v2: 
-        st.video("https://www.youtube.com/watch?v=gx4uO1DYkuQ")
-        st.caption("Policy Debate: Social Development")
-    with v3: 
-        st.video("https://www.youtube.com/watch?v=GZYm33tvWls")
-        st.caption("Analysis on International Relations")
+with c_cert:
+    st.markdown("### Global Certifications")
+    l1, l2, l3, l4 = st.columns(4)
+    with l1:
+        tft = get_img(["Tufts"])
+        if tft: st.image(tft, width=110)
+        st.caption("Digital Finance (Tufts, USA)")
+    with l2:
+        goog = get_img(["Google"])
+        if goog: st.image(goog, width=110)
+        st.caption("Machine Learning & AI")
+    with l3:
+        undp = get_img(["UNDP_BIOFIN"])
+        if undp: st.image(undp, width=130)
+        st.caption("Climate Finance (BIOFIN)")
+    with l4:
+        meal_l = get_img(["PRIYA"]) 
+        if meal_l: st.image(meal_l, width=110)
+        st.caption("MEAL & Impact (PRIA, India)")
 
-# 05. EDUCATION & CERTS
-st.markdown("<div class='section-header'>🎓 Education & Certifications</div>", unsafe_allow_html=True)
-# (Previous Education and Certification code here...)
-ce1, ce2 = st.columns([1, 2])
-with ce1:
-    st.markdown("<div class='edu-card'><b>MBA in AIS & PGD in IR</b><br>University of Dhaka</div>", unsafe_allow_html=True)
-with ce2:
-    st.markdown("Certifications: Digital Finance (Tufts), AI (Google), MEAL (PRIA India), Climate Finance (UNDP).")
-
-# 06. ACADEMIC LOGOS
+# 05. ACADEMIC ENGAGEMENT
 st.markdown("<div class='section-header'>🏫 Academic Engagement</div>", unsafe_allow_html=True)
-l1, l2, l3, l4 = st.columns(4)
-for i, name in enumerate(["South Asia", "Royal University", "Canadian", "Dhaka"]):
-    with [l1,l2,l3,l4][i]:
-        logo = get_img([name])
-        if logo: st.image(logo, width=180)
+v_col1, v_col2, v_col3 = st.columns(3)
+with v_col1:
+    img1 = get_img(["South Asia"])
+    if img1: st.image(img1, width=200)
+with v_col2:
+    img2 = get_img(["Royal University"])
+    if img2: st.image(img2, width=200)
+with v_col3:
+    img3 = get_img(["Canadian University"])
+    if img3: st.image(img3, width=200)
 
-st.markdown("<br><hr><center style='color: #6b7280;'>Md. Toufique Hossain | 2026 Portfolio</center>", unsafe_allow_html=True)
+# 06. THOUGHT LEADERSHIP
+st.markdown("<div class='section-header'>📝 Policy Advocacy & Publications</div>", unsafe_allow_html=True)
+tab1, tab2 = st.tabs(["📰 National Policy Columns", "📊 Scholar & Books"])
+
+with tab1:
+    st.write("### Strategic Public Advocacy")
+    ca, cb = st.columns(2)
+    with ca:
+        links1 = [
+            ("The Business Standard: Author Archive", "https://www.tbsnews.net/author/md-toufique-hossain"),
+            ("Daily Sun: International Relations Analysis", "https://epaper.daily-sun.com/view/7/61676/2025-02-18"),
+            ("Financial Express: Spin-off Effect Analysis", "https://thefinancialexpress.com.bd/views/analysis/spin-off-effect-on-lower-income-groups-1605888994"),
+            ("Financial Express: Trump’s 2nd Term Implications", "https://today.thefinancialexpress.com.bd/features-analysis/trumps-second-term-the-implications-for-others-1741975274"),
+            ("Prothom Alo: Policy Perspective (Bangla)", "https://www.prothomalo.com/opinion/column/8tyv0229rj")
+        ]
+        for title, url in links1:
+            st.markdown(f"<div class='article-box'><a class='article-link' href='{url}' target='_blank'>● {title}</a></div>", unsafe_allow_html=True)
+    with cb:
+        links2 = [
+            ("Business Mirror: Editorial (Feb 2026)", "https://epaper.bmirror.net/nogor-edition/2026-02-09/4"),
+            ("Business Mirror: Banking Sector Crisis", "https://epaper.bmirror.net/nogor-edition/2026-03-04/4"),
+            ("Business Mirror: Policy Brief (Jan 2025)", "https://epaper.bmirror.net/nogor-edition/2025-01-30/8"),
+            ("Daily Observer: IMF and Growth Strategies", "https://observerbd.com/news/513265"),
+            ("Banik Barta: Financial Sector Editorial", "https://bonikbarta.com/editorial/f2WqYrUw1a1fFhza")
+        ]
+        for title, url in links2:
+            st.markdown(f"<div class='article-box'><a class='article-link' href='{url}' target='_blank'>● {title}</a></div>", unsafe_allow_html=True)
+
+with tab2:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("[![Scholar](https://img.shields.io/badge/Google_Scholar-Academic_Profile-blue?style=for-the-badge&logo=google-scholar)](https://scholar.google.com/citations?hl=en&user=3qtQiPAAAAAJ)")
+    st.info("**Published Work:** Author of 12 Peer-Reviewed Papers and 2 Books on Economics & Share Market.")
+    st.markdown("""
+    <div style='background: rgba(255, 204, 0, 0.1); padding: 15px; border-radius: 10px; border: 1px solid #ffcc00;'>
+    <b>Featured Publication:</b><br>
+    <i>Bangladesh Share Market: Looking Ahead After Two Big Crashes</i><br>
+    <a href='https://www.amazon.com/-/es/Md-Toufique-Hossain/dp/9849048565' target='_blank' style='color: #ffcc00; font-weight: bold;'>View on Amazon</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+# 07. TV MEDIA
+st.markdown("<div class='section-header'>📺 TV Media Appearances</div>", unsafe_allow_html=True)
+v1, v2, v3 = st.columns(3)
+with v1: st.video("https://www.youtube.com/watch?v=dyUHqGHcHm0")
+with v2: st.video("https://www.youtube.com/watch?v=gx4uO1DYkuQ")
+with v3: st.video("https://www.youtube.com/watch?v=GZYm33tvWls")
+
+# FOOTER
+st.markdown("<br><hr><center style='color: #6b7280; padding-bottom: 50px;'>Md. Toufique Hossain | Executive Portfolio 2026</center>", unsafe_allow_html=True)
