@@ -137,25 +137,29 @@ st.write("\n")
 v_col1, v_col2, v_col3 = st.columns(3)
 
 with v_col1:
-    if os.path.exists("University of South Asia Logo.png"):
-        st.image("University of South Asia Logo.png", width=160)
+    # University of South Asia (JPG)
+    if os.path.exists("University of South Asia.jpg"):
+        st.image("University of South Asia.jpg", width=160)
     else:
         st.write("**University of South Asia**")
     st.caption("Guest Lecturer")
 
 with v_col2:
-    if os.path.exists("Royal University Logo.png"):
-        st.image("Royal University Logo.png", width=160)
+    # Royal University (JPG)
+    if os.path.exists("Royal University.jpg"):
+        st.image("Royal University.jpg", width=160)
     else:
         st.write("**Royal University of Dhaka**")
     st.caption("Guest Lecturer")
 
 with v_col3:
-    if os.path.exists("Canadian University Logo.png"):
-        st.image("Canadian University Logo.png", width=160)
+    # Canadian University (PNG)
+    if os.path.exists("Canadian University.png"):
+        st.image("Canadian University.png", width=160)
     else:
         st.write("**Canadian University of Bangladesh**")
     st.caption("Guest Lecturer")
+
 
 # 05. ALL ARTICLES & POLICY COLUMNS
 st.markdown("<div class='section-header'>📝 Policy Columns & Publications</div>", unsafe_allow_html=True)
